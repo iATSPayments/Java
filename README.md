@@ -43,17 +43,25 @@ credit / debit card transactions, rejected transactions and returns.
 
 ### Use Case 1 - ProcessLink - Transaction using a Credit Card    
 
-1) Download iATSClient.jar and add it Java classpath.
+1) Download iATSClient-V4.X.jar and add it Java classpath.
 
 2) Create an instance for ProcessLinkService as follows
 ```
+If you want to use service for NA region, create instance as below.
+    
         ProcessLinkService processLinkService = new ProcessLinkService();
+                                OR
+        ProcessLinkService processLinkService = new ProcessLinkService("https://www.iatspayments.com/NetGate/ProcessLink.asmx");                        
+    
+If you want to use service for UK region, create instance as below with end point.
+        
+        ProcessLinkService processLinkService = new ProcessLinkService("https://www.uk.iatspayments.com/NetGate/ProcessLink.asmx");
 ```
 
 3) Create ProcessCreditCardV1 object and set with customer and card details
 ```
         ProcessCreditCardV1 processCard = new ProcessCreditCardV1();
-    	processCard.setAgentCode("TEST88");
+        processCard.setAgentCode("TEST88");
 		processCard.setPassword("TEST88");
 		processCard.setCustomerIPAddress("123.123.123.1");
 		processCard.setInvoiceNum("");
