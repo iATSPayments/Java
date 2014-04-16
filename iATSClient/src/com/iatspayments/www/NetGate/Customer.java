@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name="CST")
+@XmlType
 public class Customer {
 	
 	@XmlElement(name="CSTC")
@@ -46,7 +46,20 @@ public class Customer {
 	private String comment;
 	
 	@XmlElement(name="RCR")
-	private Recurring rcr;
+	private Recurring recurring;
+	
+	@XmlElement(name="AC1")
+	private AccountType accountType1;
+	
+	@XmlElement(name="AC2")
+	private AccountType accountType2;
+	
+	@XmlElement(name="FN")
+	private String firstName;
+	
+	@XmlElement(name="LN")
+	private String lastName;
+	
 
 	public String getCustomerCode() {
 		return customerCode;
@@ -144,13 +157,46 @@ public class Customer {
 		this.comment = comment;
 	}
 
-	public Recurring getRcr() {
-		return rcr;
+	public Recurring getRecurring() {
+		return recurring;
 	}
 
-	public void setRcr(Recurring rcr) {
-		this.rcr = rcr;
+	public void setRecurring(Recurring recurring) {
+		this.recurring = recurring;
 	}
+
+	public AccountType getAccountType1() {
+		return accountType1;
+	}
+
+	public void setAccountType1(AccountType accountType1) {
+		this.accountType1 = accountType1;
+	}
+
+	public AccountType getAccountType2() {
+		return accountType2;
+	}
+
+	public void setAccountType2(AccountType accountType2) {
+		this.accountType2 = accountType2;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
 	
 	
 }
