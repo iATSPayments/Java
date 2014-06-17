@@ -45,7 +45,19 @@ credit / debit card transactions, rejected transactions and returns.
 
 1) Download iATSClient-V4.0.jar and add it to java classpath.
 
-2) Create an instance for ProcessLinkService as follows
+2) Add below imports to your Java class.
+
+`import java.rmi.RemoteException;`
+
+`import java.util.Calendar;`
+
+`import java.util.TimeZone;`
+
+`import javax.xml.bind.JAXBException;`
+
+`import com.iatspayments.www.NetGate.*;`
+
+3) Create an instance for ProcessLinkService as follows
 
 For NA region, create ProcessLinkService instance as shown below.
 ```  
@@ -58,7 +70,7 @@ For UK region, create ProcessLinkService instance with UK region's endpoint as s
 ProcessLinkService processLinkService = new ProcessLinkService("https://www.uk.iatspayments.com/NetGate/ProcessLink.asmx");
 ```
 
-3) Create ProcessCreditCardV1 object and set with customer and card details
+4) Create ProcessCreditCardV1 object and set with customer and card details
 ```
         ProcessCreditCardV1 processCard = new ProcessCreditCardV1();
         processCard.setAgentCode("TEST88");
@@ -69,21 +81,58 @@ ProcessLinkService processLinkService = new ProcessLinkService("https://www.uk.i
 		processCard.setCreditCardExpiry("03/15");
 		processCard.setCvv2("");
 		processCard.setMop("VISA");
-		processCard.setFirstName("Sreekanth");
-		processCard.setLastName("G");
-		processCard.setAddress("Uppal");
-		processCard.setCity("HYD");
+		processCard.setFirstName("John");
+		processCard.setLastName("Smith");
+		processCard.setAddress("West Georgia St");
+		processCard.setCity("BC");
 		processCard.setState("AP");
 		processCard.setZipCode("500039");
 		processCard.setTotal("1");
 		processCard.setComment("Test From Java");
 ```			
-4) Invoke the service and capture the response as follows
+5) Invoke the service and capture the response as follows
 ```
 IATSResponse response = processLinkService.processCreditCard(processCard);
  ```   
-5) Verify response
+6) Verify response
 ```
 System.out.println(response.getProcessResult().getTransactionId());
 
+```
+
+7) Here is the complete sample client example.
+
+```
+import java.rmi.RemoteException;
+import java.util.Calendar;
+import java.util.TimeZone;
+
+import javax.xml.bind.JAXBException;
+
+import com.iatspayments.www.NetGate.*;
+
+public class ProcessClient{
+	public static void main(String a[]) throws Exception{
+		ProcessLinkService processLinkService = new ProcessLinkService();
+		ProcessCreditCardV1 processCard = new ProcessCreditCardV1();
+        processCard.setAgentCode("TEST88");
+        processCard.setPassword("TEST88");
+        processCard.setCustomerIPAddress("123.123.123.1");
+        processCard.setInvoiceNum("");
+        processCard.setCreditCardNum("4222222222222220");
+        processCard.setCreditCardExpiry("03/15");
+        processCard.setCvv2("");
+        processCard.setMop("VISA");
+        processCard.setFirstName("John");
+        processCard.setLastName("Smith");
+        processCard.setAddress("West Georgia St");
+        processCard.setCity("BC");
+        processCard.setState("AP");
+        processCard.setZipCode("500039");
+        processCard.setTotal("1");
+        processCard.setComment("Test From Java");
+		IATSResponse response = processLinkService.processCreditCard(processCard);
+		System.out.println(response.getProcessResult().getTransactionId()+" Generated Transaction ID");
+	}
+}
 ```
