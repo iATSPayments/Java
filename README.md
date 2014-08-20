@@ -43,7 +43,7 @@ credit / debit card transactions, rejected transactions and returns.
 
 ### Use Case 1 - ProcessLink - Transaction using a Credit Card    
 
-1) Download iATSClient-V4.0.jar and add it to java classpath.
+1) Download iATSClient-4.1.0.jar and add it to java classpath.
 
 2) Add below imports to your Java class.
 
