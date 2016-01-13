@@ -4,7 +4,7 @@ A JAVA wrapper for the iATS SOAP API.
 
 iATS Web Services provides the facility to securely process payments using credit cards, ACH, or direct debit through your website or software.
 
-iATS Web Services [overview](https://na10.salesforce.com/sfc/p/#A0000000ZyVz/a/F00000008Qfp/68aOuqxOzcey6QbODvM9qyHG9fVgDtuWrkCDr84._WY=)
+iATS Web Services [overview](http://home.iatspayments.com/developers/underlying-soap-api)
 
 ## Requirements
 
@@ -23,7 +23,7 @@ ProcessLink service to process single or recurring transactions for customers.
 
 **iATS documentation**
 * Request / response overview: https://www.iatspayments.com/NetGate/CustomerLink.asmx
-* Detailed API [guide](https://na10.salesforce.com/sfc/p/#A0000000ZyVz/a/F00000008Qfp/68aOuqxOzcey6QbODvM9qyHG9fVgDtuWrkCDr84._WY=)
+* Detailed API [guide](http://home.iatspayments.com/developers/underlying-soap-api)
  
 ### ProcessLink
 
@@ -32,7 +32,7 @@ also be used to refund transactions.
 
 **iATS documentation**
 * Request / response overview: https://www.iatspayments.com/NetGate/ProcessLink.asmx
-* Detailed API [guide](https://na10.salesforce.com/sfc/p/#A0000000ZyVz/a/F00000008Qfp/68aOuqxOzcey6QbODvM9qyHG9fVgDtuWrkCDr84._WY=)
+* Detailed API [guide](http://home.iatspayments.com/developers/underlying-soap-api)
 
 ### ReportLink
 
